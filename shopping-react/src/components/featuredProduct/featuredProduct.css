@@ -1,0 +1,23 @@
+.featuredProductContainer {
+    padding: 5px;
+    position: relative;
+}
+
+.featureProductTitle {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: 5px;
+    align-items: center;
+}
+
+.featuredProductList-carousel-container {
+    position: relative;
+    width: 1000px;
+    z-index: 2;
+}
+
+.featuredProductList-carousel-item {
+    width: 100%;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,10 @@
+.bannerContainer {
+    height: 200px;
+    margin-top: 5px;
+}
+
+.bannerImg {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}

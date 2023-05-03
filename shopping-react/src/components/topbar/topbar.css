@@ -1,0 +1,136 @@
+.topbar {
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    background-color: rgba(230, 132, 41);
+    top: 0;
+    color: white;
+    z-index: 99;
+}
+
+.topbarLeft {
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.topbarLogo {
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+.topbarCenter {
+    flex: 3;
+}
+
+.topbarSearchBar {
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    border: 2px solid rgba(240, 234, 234, 0.3);
+    border-radius: 25px;
+}
+
+.topbarSearchBar:focus-within {
+    border-color: rgb(184, 95, 7);
+}
+
+.topbarSearchIcon {
+    margin-right: 10px;
+}
+
+.topbarSearchInput {
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.topbarSearchInput:focus {
+    outline: none;
+}
+
+.topbarSearchInput::placeholder {
+    color: white;
+}
+
+.topbarSearchButton {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.topbarSearchButton:hover {
+   
+    background-color: rgb(216, 208, 208);
+    border-radius: 50%;
+}
+
+.topbarRight {
+    flex: 4;
+}
+
+.topbarActions {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+}
+
+.topbarCartIcon {
+    margin-right: 50px;
+    position: relative;
+
+}
+
+.cartIcon {
+    cursor: pointer;
+}
+
+
+.topbarIconBadge {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    color: rgba(230, 132, 41);
+    position: absolute;
+    top: -6px;
+    right: -11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.topbarProfileIcon {
+    cursor: pointer;
+}
+
+.topbarBottom {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.topbarBottomItem {
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.topbarBottomItem:hover {
+    background-color: rgb(250, 247, 247);
+    
+}

@@ -1,0 +1,27 @@
+.rightbarContainer {
+    flex: 6;
+    display: flex;
+}
+
+.rightbarSearchProducts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.pagination-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .rightbarSearchTitle {
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .rightbarHomeBannerContainer {
+    display: flex;
+  }

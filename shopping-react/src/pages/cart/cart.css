@@ -1,0 +1,126 @@
+.cartContainer {
+    padding: 20px;
+    display: flex;
+}
+
+.cartLeft {
+    flex: 5;
+}
+
+.cartHeader {
+    display: flex;
+}
+
+.cartHeaderPrice {
+    flex: 3;
+}
+
+.cartHeaderEmpty {
+    flex: 7.5;
+}
+
+.cartHeaderTotal {
+    flex: 3;
+}
+
+.cartRight {
+    flex: 2;
+    padding: 20px;
+}
+
+.cartSummary {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 1px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.cartSummaryTitle {
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(199, 195, 195, 0.3);
+}
+
+.cartSummaryContent {
+    color: rgb(77, 72, 72, 0.7);
+    font-size: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(199, 195, 195, 0.3);
+}
+
+.cartSummarySubTotal {
+    display: flex;
+    padding: 10px 0;
+}
+
+.subTotalLabel {
+    flex: 1;
+}
+
+.subTotalValue {
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 0.4s;
+}
+
+.cartSummaryShip {
+    display: flex;
+    padding: 10px 0;
+}
+
+.shipLabel {
+    flex: 1;
+}
+
+.cartSummaryTotal {
+    display: flex;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 13px 0;
+}
+
+.totalLabel {
+    font-size: 20px;
+    flex: 1;
+}
+
+.totalValue {
+    font-size: 20px;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 0.4s;
+}
+
+.checkoutButton {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 25px;
+    background-color: rgba(230, 132, 41, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.checkoutButton:hover {
+    background-color: rgba(230, 132, 41, 1);
+}
+.paypalLogo {
+    width: 40%;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

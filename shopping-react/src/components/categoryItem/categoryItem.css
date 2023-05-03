@@ -1,0 +1,29 @@
+.categoryItemContainer {
+    padding: 5px;   
+}
+
+.categoryItemImg {
+    width: 30px;
+    margin-right: 10px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.categoryItemBtn {
+    width: 100%;
+    border: none;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    background-color:white ;
+    align-items: center;
+    font-weight: bold;
+}
+
+.categoryItemBtn:hover {
+    background-color: rgba(207, 205, 205, 1);
+}

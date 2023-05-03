@@ -1,0 +1,90 @@
+.cartItemContainer {
+    display: flex;
+    padding: 20px;
+    margin: 10px;
+    border-top: 1px solid rgb(199, 195, 195, 0.3);
+}
+
+.cartItemLeft {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cartItemImg {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    
+}
+
+.cartItemRight {
+    flex: 4;
+}
+
+.cartItemRightTop {
+    display: flex;
+}
+
+.cartItemName {
+    flex: 1;
+    font-size: 20px;
+}
+
+.cartItemCancel {
+    font-weight: bold;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cartItemRightBottom {
+    display: flex;
+    align-items: center;
+    padding: 30px 0px;
+}
+
+.cartItemQuantity {
+    flex: 1;
+}
+
+.cartItemQuantityLabel {
+    font-size: 15px;
+    margin-right: 30px;
+}
+
+.cartItemQuantityInput {
+    width: 25%;
+    border-radius: 10px;
+    padding: 4px;
+    padding-left: 10px;
+    border: 1px solid grey;
+}
+
+.cartItemMulti {
+    flex: 0.4;
+}
+
+.cartItemPrice {
+    flex: 1;
+}
+
+.cartItemTotalPrice{
+    flex: 1;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 0.4s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

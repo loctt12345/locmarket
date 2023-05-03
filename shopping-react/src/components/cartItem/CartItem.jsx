@@ -1,0 +1,78 @@
+import './cartItem.css';
+import ClearIcon from '@mui/icons-material/Clear';
+import axios from 'axios';
+import { CartContext } from '../../context/CartContext';
+import { useRef, useContext } from 'react';
+
+export default function CartItem({item}) {
+
+    const quantityInput = useRef();
+    const {cart, setCart} = useContext(CartContext);
+    let isChanged = false;
+
+    const handleRemove = () => {
+        const removeCart = async () => {
+            await axios("http://localhost:5225/api/Cart/" + item.product.productId, {
+                method : "delete",
+                withCredentials : true
+            });
+        }
+        removeCart();
+        const newCart = cart.filter(c => c.product.productId != item.product.productId);
+        setCart(newCart);
+    }
+
+    const handleOnBlur = async() => {
+        if (isChanged){
+            await axios(`http://localhost:5225/api/Cart/${item.product.productId}/${quantityInput.current.value}`, {
+                method : "put",
+                withCredentials : true
+            });
+            const newCart = cart.map(c => {
+                if (c.product.productId === item.product.productId) {
+                    c.quantity = quantityInput.current.value;
+                }
+                return c;
+            })
+            setCart(newCart);
+        }
+    }
+
+    const handleOnChange = () => {
+        isChanged = true;
+        
+    }
+
+    return (
+        <div className='cartItemContainer'>
+            <div className="cartItemLeft">
+                <img src={item.product.image} alt="" className="cartItemImg" />
+            </div>
+            <div className="cartItemRight">
+                <div className="cartItemRightTop">
+                    <h1 className="cartItemName">{item.product.name}</h1>
+                    <div className="cartItemCancel" onClick={handleRemove}><ClearIcon/></div>
+                </div>
+                <div className="cartItemRightBottom">
+                    <div className="cartItemQuantity">
+                        <label className='cartItemQuantityLabel' htmlFor={item.product.productId}>Số lượng: </label>
+                        <input type="number" id={item.product.productId} 
+                            className="cartItemQuantityInput" defaultValue={item.quantity}
+                            onBlur={handleOnBlur}
+                            ref={quantityInput}
+                            onChange={handleOnChange}
+                            />
+                    </div>
+                    <div className="cartItemMulti"><ClearIcon fontSize='small'/></div>
+                    <div className="cartItemPrice">
+                        <span>{item.product.sellPrice}</span>
+                    </div>
+                    <div className="cartItemTotalPrice" key={item.product.sellPrice * item.quantity}>
+                        <span>{item.product.sellPrice * item.quantity}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    )
+}

@@ -1,0 +1,40 @@
+.productCardContainer {
+    display: flex;
+    padding: 2px;    
+    margin: 10px;
+    max-height: 400px;
+}
+
+.productCard {
+    padding: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    width: 180px;
+}
+
+.productCardName {
+    cursor: pointer;
+    height: 70px;
+}
+
+.productCardImg {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.productCardBuyBtn {
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(230, 132, 41, 0.7);
+    font-weight: 500;
+}
+
+.productCardBuyBtn:hover {
+    background-color: rgba(230, 132, 41, 1);
+}

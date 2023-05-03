@@ -1,0 +1,73 @@
+.productContainer {
+    padding: 20px;
+}
+
+.productTop {
+    padding: 50px;
+    display: flex;
+    background-color: rgba(230, 132, 41, 0.05);
+}
+
+.productLeft {
+    flex: 4;
+    margin-right: 100px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.productLeftImg {
+    width: 80%;
+    object-fit: cover;
+}
+
+.productRight {
+    flex: 5;
+    padding: 5px 20px;
+    
+    border-radius: 20px;
+}
+
+
+.productRightName {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.productRightBottomContainer {
+    background-color: rgba(230, 132, 41, 0.4);
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+.productRightBottom {
+    margin-left: 20px;
+}
+
+.productRightButton {
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
+
+.productRightButton:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.productRightPrice {
+    padding-bottom: 20px;
+}
+
+.productRightDesc {
+    margin-top: 10px;
+    font-size: 20px;
+}
