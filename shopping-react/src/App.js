@@ -26,7 +26,7 @@ function App() {
     <SearchContext.Provider value={{search, setSearch}}>
       <CategoryContext.Provider value={{category, setCategory}}>
       <CartContext.Provider value={{cart, setCart}}>
-    <Router>
+    <Router basename="/locmarket">
       <Routes>
         <Route path="/" element={
             <Home/>
