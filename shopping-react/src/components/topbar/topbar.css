@@ -92,20 +92,21 @@
 
 }
 
+
 .cartIcon {
     cursor: pointer;
 }
 
 
 .topbarIconBadge {
-    width: 15px;
-    height: 15px;
-    background-color: white;
+    width: 18px;
+    height: 18px;
+    background-color: #2bd156;
     border-radius: 50%;
-    color: rgba(230, 132, 41);
+    color: white;
     position: absolute;
-    top: -6px;
-    right: -11px;
+    top: -10px;
+    right: -13px;
     display: flex;
     align-items: center;
     justify-content: center;

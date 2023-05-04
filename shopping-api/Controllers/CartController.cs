@@ -57,6 +57,7 @@ public class CartController : ControllerBase
     [HttpPut("{id}/{quantity}")]
     public IActionResult UpdateItem(string id, int quantity) {
         var product = _productRepo.GetById(id);
+        _logger.LogCritical(product.Name);
         var cart = _cartService.UpdateItem(HttpContext, product, quantity);
         return Ok(cart.list.Values.ToList());
     }

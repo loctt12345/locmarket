@@ -13,7 +13,7 @@ import { CartContext } from '../../context/CartContext';
 export default function Product() {
     const productId = useParams().id;
     const [product, setProduct] = useState(null);    
-    const {cart, setCart} = useContext(CartContext);
+    const { setCart} = useContext(CartContext);
 
     useEffect(() => {
       const getData = async() => {
@@ -23,13 +23,17 @@ export default function Product() {
       getData();
     }, [productId]);
 
-    const handleClick = async() => {
+    const handleClick = async(e) => {
         const data = await axios(`http://localhost:5225/api/Cart/${productId}/1`, 
                     { 
                         method : "post",
                         withCredentials: true 
                     });
         setCart(data.data);
+        e.target.classList.add("sendtocart");
+        setTimeout(function(){
+          e.target.classList.remove('sendtocart');
+        },250);
     }
 
     const handleError = (e) => {
@@ -59,8 +63,9 @@ export default function Product() {
                     {product.sellPrice}
                     </h2>
                     
-                  <button className="productRightButton" onClick={handleClick}>
+                  <button className="productRightButton" onClick={(e) => handleClick(e)}>
                     Thêm vào giỏ hàng
+                    <span className="cart-item"></span>
                   </button>
                 </div>
               </div>

@@ -16,13 +16,16 @@ export default function Cart() {
     const [currentPage, setCurrentPage] = useState(1);
     const nodeRef = useRef();
 
+    
+
     useEffect(() => {
         let total = 0;
         cart.map(p => {
             total += p.quantity * p.product.sellPrice;
+            return 1;
         });
         setSubTotal(total);
-        if (currentTableData.length == 0 && currentPage != 1) {
+        if (currentTableData.length === 0 && currentPage !== 1) {
             setCurrentPage(currentPage - 1);
         }
     }, [cart]);
@@ -32,7 +35,6 @@ export default function Cart() {
         const lastPageIndex = firstPageIndex + PageSize;
         return cart.slice(firstPageIndex, lastPageIndex);
       }, [currentPage, cart]);
-    
     
     return (
         <>

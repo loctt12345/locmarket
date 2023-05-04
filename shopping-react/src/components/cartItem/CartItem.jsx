@@ -2,13 +2,18 @@ import './cartItem.css';
 import ClearIcon from '@mui/icons-material/Clear';
 import axios from 'axios';
 import { CartContext } from '../../context/CartContext';
-import { useRef, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import {Link} from "react-router-dom"; 
+
 
 export default function CartItem({item}) {
-
-    const quantityInput = useRef();
+    const [quantityValue, setQuantityVale] = useState(item.quantity);
+    const [isChanged, setIsChanged] = useState(false);
     const {cart, setCart} = useContext(CartContext);
-    let isChanged = false;
+    
+    useEffect(() => {
+        setQuantityVale(item.quantity);
+    }, [item.quantity]);
 
     const handleRemove = () => {
         const removeCart = async () => {
@@ -18,29 +23,31 @@ export default function CartItem({item}) {
             });
         }
         removeCart();
-        const newCart = cart.filter(c => c.product.productId != item.product.productId);
+        const newCart = cart.filter(c => c.product.productId !== item.product.productId);
         setCart(newCart);
     }
 
     const handleOnBlur = async() => {
         if (isChanged){
-            await axios(`http://localhost:5225/api/Cart/${item.product.productId}/${quantityInput.current.value}`, {
+            await axios(`http://localhost:5225/api/Cart/${item.product.productId}/${quantityValue}`, {
                 method : "put",
                 withCredentials : true
             });
             const newCart = cart.map(c => {
                 if (c.product.productId === item.product.productId) {
-                    c.quantity = quantityInput.current.value;
+                    c.quantity = quantityValue;
                 }
                 return c;
             })
             setCart(newCart);
+            setIsChanged(false);
+            console.log("dasds");
         }
     }
 
-    const handleOnChange = () => {
-        isChanged = true;
-        
+    const handleOnChange = (e) => {
+        setIsChanged(true);
+        setQuantityVale(e.target.value);
     }
 
     return (
@@ -50,17 +57,18 @@ export default function CartItem({item}) {
             </div>
             <div className="cartItemRight">
                 <div className="cartItemRightTop">
-                    <h1 className="cartItemName">{item.product.name}</h1>
+                    <Link to={"/product/" + item.product.productId} style={{textDecoration:"none", color:"black"}}>
+                        <h1 className="cartItemName">{item.product.name}</h1>
+                    </Link>
                     <div className="cartItemCancel" onClick={handleRemove}><ClearIcon/></div>
                 </div>
                 <div className="cartItemRightBottom">
                     <div className="cartItemQuantity">
                         <label className='cartItemQuantityLabel' htmlFor={item.product.productId}>Số lượng: </label>
                         <input type="number" id={item.product.productId} 
-                            className="cartItemQuantityInput" defaultValue={item.quantity}
+                            className="cartItemQuantityInput" value={quantityValue}
                             onBlur={handleOnBlur}
-                            ref={quantityInput}
-                            onChange={handleOnChange}
+                            onChange={(e) => handleOnChange(e)}
                             />
                     </div>
                     <div className="cartItemMulti"><ClearIcon fontSize='small'/></div>
@@ -73,6 +81,5 @@ export default function CartItem({item}) {
                 </div>
             </div>
         </div>
-
     )
 }
