@@ -41,7 +41,6 @@ export default function CartItem({item}) {
             })
             setCart(newCart);
             setIsChanged(false);
-            console.log("dasds");
         }
     }
 
