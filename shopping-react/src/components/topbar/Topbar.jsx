@@ -8,6 +8,7 @@ import {CategoryContext} from "../../context/CategoryContext";
 import { CartContext } from '../../context/CartContext';
 import {Link, useNavigate} from "react-router-dom"; 
 import axios from "axios";
+import { categoryApi } from "../../data/categoryFakeApi";
 
 export default function Topbar() {
 
@@ -20,8 +21,9 @@ export default function Topbar() {
         
     useEffect(() => {
         const getData = async() => {
-            const data = await axios.get("http://localhost:5225/api/Product/Category");
-            setCategories(data.data.slice(30, 38));
+            //const data = await axios.get("http://localhost:5225/api/Product/Category").data;
+            const data = categoryApi.getAll();
+            setCategories(data.slice(30, 38));
         }
         getData();
     }, []);

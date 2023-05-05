@@ -9,6 +9,7 @@ import FeaturedProduct from '../featuredProduct/FeaturedProduct';
 import { SearchOutlined} from '@mui/icons-material';
 import Banner from '../banner/Banner';
 import FeaturedCategory from '../featuredCategory/FeaturedCategory';
+import { productApi } from '../../data/productFakeApi';
 
 
 let PageSize = 40;
@@ -19,11 +20,13 @@ export default function Rightbar() {
   const {search} = useContext(SearchContext);
   const {category} = useContext(CategoryContext);
 
+
   useEffect(() => {
     const getProducts = async() => {
-      const data = await axios
-      .get(`http://localhost:5225/api/Product?q=${search}&&categoryId=${category == null?"":category.categoryId}`);
-      setProducts(data.data);
+      // const data = await axios
+      // .get(`http://localhost:5225/api/Product?q=${search}&&categoryId=${category == null?"":category.categoryId}`).data;
+      const data = productApi.getAll(category == null?"":category.categoryId, search);
+      setProducts(data);
       setCurrentPage(1);
     }
     getProducts();

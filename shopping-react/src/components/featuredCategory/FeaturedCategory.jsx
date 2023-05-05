@@ -5,6 +5,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCard from '../productCard/ProductCard';
 import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
+import { productApi } from '../../data/productFakeApi';
+import { categoryApi } from '../../data/categoryFakeApi';
 
 
 export default function FeaturedCategory() {
@@ -31,17 +33,19 @@ export default function FeaturedCategory() {
 
     useEffect(() => {
         const getData = async() => {
-            const data = await axios.get(`http://localhost:5225/api/Product?categoryId=${category.categoryId}`);
-            setProducst(data.data);
+            //const data = await axios.get(`http://localhost:5225/api/Product?categoryId=${category.categoryId}`).data;
+            const data = productApi.getAll(category===null?"":category.categoryId, "");
+            setProducst(data);
         }
         getData();
     }, [category]);
 
     useEffect(() => {
         const getData = async() => {
-            const data = await axios.get(`http://localhost:5225/api/Product/Category`);
-            setCategories(data.data);
-            setCategory(data.data[0]);
+            //const data = await axios.get(`http://localhost:5225/api/Product/Category`).data;
+            const data = categoryApi.getAll();
+            setCategories(data);
+            setCategory(data[0]);
         }
         getData();
     }, []);

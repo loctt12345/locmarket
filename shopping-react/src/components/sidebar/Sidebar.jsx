@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './sidebar.css'
-import axios from 'axios';
-
 import CategoryItem from '../categoryItem/CategoryItem';
+import { categoryApi } from '../../data/categoryFakeApi';
 
 export default function Sidebar() {
 
@@ -12,8 +11,9 @@ export default function Sidebar() {
 
     useEffect(() => {
         const getData = async () => {
-            const data = await axios.get("http://localhost:5225/api/Product/Category");
-            setCategories(data.data);
+            //const data = await axios.get("http://localhost:5225/api/Product/Category").data;
+            const data = categoryApi.getAll();
+            setCategories(data);
         }
         getData();
     }, []);

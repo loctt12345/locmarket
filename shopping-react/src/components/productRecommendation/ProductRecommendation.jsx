@@ -4,6 +4,7 @@ import axios from 'axios';
 import ProductCard from '../productCard/ProductCard';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { productApi } from '../../data/productFakeApi';
 
 export default function ProductRecommendation({category}) {
     
@@ -18,8 +19,9 @@ export default function ProductRecommendation({category}) {
 
     useEffect(() => {
         const getData = async() => {
-          const data = await axios.get(`http://localhost:5225/api/Product?categoryId=${category.categoryId}`);
-          setRecomProducts(data.data);
+          //const data = await axios.get(`http://localhost:5225/api/Product?categoryId=${category.categoryId}`).data;
+          const data = productApi.getAll(category.categoryId, "");
+          setRecomProducts(data);
         } 
         getData();
     }, [category]);

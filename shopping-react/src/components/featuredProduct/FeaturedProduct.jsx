@@ -5,6 +5,7 @@ import ProductCard from '../productCard/ProductCard';
 import StarIcon from '@mui/icons-material/Star';
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+import { productApi } from '../../data/productFakeApi';
 
 
 
@@ -21,8 +22,9 @@ export default function FeaturedProduct() {
 
     useEffect(() => {
         const getData = async() => {
-            const data = await axios.get("http://localhost:5225/api/Product/");
-            setProducts(data.data.slice(1, 9));
+            //const data = await axios.get("http://localhost:5225/api/Product/").data;
+            const data = productApi.getAll();
+            setProducts(data.slice(1, 9));
         }
         getData();
     }, []);

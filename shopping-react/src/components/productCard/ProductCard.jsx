@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function ProductCard({product, buyButton}) {
 
     const handleError = (e) => {
-        e.target.src = "/assets/product-not-found.png";
+        e.target.src = "./locmarket/assets/product-not-found.png";
     }
     return ( 
     <>{ product===null?"Loading":

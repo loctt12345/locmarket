@@ -81,7 +81,7 @@ export default function Cart() {
 
                         <button className="checkoutButton">
                             <span>Thanh toán với</span>
-                            <img src="/assets/paypalLogo.svg" alt="" className="paypalLogo" />
+                            <img src="./locmarket/assets/paypalLogo.svg" alt="" className="paypalLogo" />
                         </button>
                     </div>
                 </div>

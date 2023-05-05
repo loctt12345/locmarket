@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy" : "react-scripts build",
-    "deploy" : "gh-pages -d build -e shopping-react"
+    "deploy" : "gh-pages -d build "
   },
   "eslintConfig": {
     "extends": [

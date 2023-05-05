@@ -8,28 +8,40 @@ import ProductPath from '../../components/productPath/ProductPath';
 import Footer from '../../components/footer/Footer';
 import ProductRecommendation from '../../components/productRecommendation/ProductRecommendation';
 import { CartContext } from '../../context/CartContext';
+import { productApi } from '../../data/productFakeApi';
 
 
 export default function Product() {
     const productId = useParams().id;
     const [product, setProduct] = useState(null);    
-    const { setCart} = useContext(CartContext);
-
+    const {cart, setCart} = useContext(CartContext);
     useEffect(() => {
       const getData = async() => {
-        const data = await axios.get("http://localhost:5225/api/Product/" + productId);
-        setProduct(data.data);
+        //const data = await axios.get("http://localhost:5225/api/Product/" + productId).data;
+        const data = productApi.getById(productId);
+        setProduct(data);
       };
       getData();
     }, [productId]);
 
     const handleClick = async(e) => {
-        const data = await axios(`http://localhost:5225/api/Cart/${productId}/1`, 
-                    { 
-                        method : "post",
-                        withCredentials: true 
-                    });
-        setCart(data.data);
+        // const data = await axios(`http://localhost:5225/api/Cart/${productId}/1`, 
+        //             { 
+        //                 method : "post",
+        //                 withCredentials: true 
+        //             }).data;
+        let isContained = false;
+        let newCart = [...cart];
+        for (let i = 0; i < cart.length; ++i) {
+          if (newCart[i].product.productId === productId) {
+            newCart[i].quantity += 1;
+            isContained = true;
+          }
+        }
+        if (!isContained) {
+          newCart.push({product, quantity: 1});
+        }
+        setCart(newCart);
         e.target.classList.add("sendtocart");
         setTimeout(function(){
           e.target.classList.remove('sendtocart');

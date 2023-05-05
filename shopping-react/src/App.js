@@ -16,8 +16,8 @@ function App() {
 
   useEffect(() => {
     const getData = async() => {
-        const data = await axios.get("http://localhost:5225/api/Cart/", { withCredentials: true });
-        setCart(data.data);
+        //const data = await axios.get("http://localhost:5225/api/Cart/", { withCredentials: true });
+        setCart([]);
     }
     getData();
 }, []);
@@ -26,7 +26,7 @@ function App() {
     <SearchContext.Provider value={{search, setSearch}}>
       <CategoryContext.Provider value={{category, setCategory}}>
       <CartContext.Provider value={{cart, setCart}}>
-    <Router basename="/locmarket">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={
             <Home/>

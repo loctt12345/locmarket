@@ -22,17 +22,17 @@ export default function CartItem({item}) {
                 withCredentials : true
             });
         }
-        removeCart();
+        //removeCart();
         const newCart = cart.filter(c => c.product.productId !== item.product.productId);
         setCart(newCart);
     }
 
     const handleOnBlur = async() => {
         if (isChanged){
-            await axios(`http://localhost:5225/api/Cart/${item.product.productId}/${quantityValue}`, {
-                method : "put",
-                withCredentials : true
-            });
+            // await axios(`http://localhost:5225/api/Cart/${item.product.productId}/${quantityValue}`, {
+            //     method : "put",
+            //     withCredentials : true
+            // });
             const newCart = cart.map(c => {
                 if (c.product.productId === item.product.productId) {
                     c.quantity = quantityValue;
@@ -49,14 +49,19 @@ export default function CartItem({item}) {
         setQuantityVale(e.target.value);
     }
 
+    const handleError = (e) => {
+        e.target.src = "./locmarket/assets/product-not-found.png";
+    }
+
     return (
         <div className='cartItemContainer'>
             <div className="cartItemLeft">
-                <img src={item.product.image} alt="" className="cartItemImg" />
+                <img src={item.product.image} alt="" className="cartItemImg" onError={handleError}/>
             </div>
             <div className="cartItemRight">
                 <div className="cartItemRightTop">
-                    <Link to={"/product/" + item.product.productId} style={{textDecoration:"none", color:"black"}}>
+                    <Link 
+                    to={"/product/" + item.product.productId} style={{textDecoration:"none", color:"black", flex: "1"}}>
                         <h1 className="cartItemName">{item.product.name}</h1>
                     </Link>
                     <div className="cartItemCancel" onClick={handleRemove}><ClearIcon/></div>
