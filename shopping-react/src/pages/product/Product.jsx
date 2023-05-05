@@ -49,7 +49,7 @@ export default function Product() {
     }
 
     const handleError = (e) => {
-      e.target.src = "/assets/product-not-found.png";
+      e.target.src = "./locmarket/assets/product-not-found.png";
     }
 
     return (
