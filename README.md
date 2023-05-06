@@ -2,10 +2,10 @@
 :wave: Welcome to my web application :wave: 
 
 ## Table of contents
-- [Description] (#description)
-- [Feature] (#feature)
-- [Preview screenshot] (#preview-creenshot)
-- [Technology] (#technology)
+- [Description](#description)
+- [Feature](#feature)
+- [Preview screenshot](#preview-screenshot)
+- [Technology](#technology)
 
 ## Description
 - This is a shopping web app called locmarket.
@@ -16,7 +16,7 @@
 - The user can see product detail.
 - The user can add a product to cart.
 - The user can CRUD items in cart.
-## Preview
+## Preview screenshot
 - 
 - 
 -
