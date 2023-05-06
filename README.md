@@ -19,12 +19,10 @@
 - The user can add a product to cart.
 - The user can CRUD items in cart.
 ## Preview screenshot
-<div align="center">
-  <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview1.png" alt="Homepage products management" width="25%">
-  </img> &nbsp;&nbsp; <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview2.png" alt="Dashboard profit" width="25%"></img> &nbsp;&nbsp;
-  <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview3.png" alt="Order Management" width="25%"></img> &nbsp;&nbsp;
-  <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview4.png" alt="Order Management" width="25%"></img> &nbsp;&nbsp;
-</div>
+- <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview1.png" alt="Homepage products management" width="100%"></img> &nbsp;&nbsp; 
+- <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview2.png" alt="Dashboard profit" width="100%"></img> &nbsp;&nbsp;
+- <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview3.png" alt="Order Management" width="100%"></img> &nbsp;&nbsp;
+- <img src="https://github.com/loctt12345/locmarket/blob/main/preview/preview4.png" alt="Order Management" width="100%"></img> &nbsp;&nbsp;
 
 ## Technology
 - This project using react js for frontend, ASP.NET Web APIs for backend.
